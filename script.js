@@ -1,61 +1,55 @@
 // Implemente aqui as funções
-const areCandidateResultsValid1=areCandidateResultsValid1()
-if (gender === male){
 
 function validAbs(abs) {
-    if (abs >= 41) 
-    return passed=true 
+        if (abs >= 41){
+            return true
+        } 
+        return false 
+}
+function validHeight(height, gender){
+    if (height >= 1.70 && gender === "male"){
+        return true
+    } else if (height >= 1.60 && gender === "female"){
+        return true
     }
-
-function validSwin(swim) {
-    if (swimDistance >= 100 && swimTime <= 60 || diveTime <= 30)
-    return passed=true 
+    return false
+}
+function validSwim (swimTime, swimDistance, diveTime){
+    if (swimTime <= 60 && swimDistance >= 100 || diveTime <=30){
+        return true
     }
-
-function validHeight(height){
-    if (height >= 1.70)    
-    return passed=valid
+    return false
+}
+function validBarTest (barReps, barTime, gender){
+    if (barReps >= 6 || barTime >= 15 && gender === "male"){
+    return true
+    } else if (barReps >= 5 || barTime >= 12 && gender === "female"){
+        return true
     }
-
-function validBarTest(bartest){
-    if (barReps >=6 || barSeconds >= 15)
-    return passed=valid
-    } 
-
-function validRun(runtest){
-    if (runDistance >= 3000 && runTime <= 720 || runDistance >= 5000 && runTime <= 1200)
-    return passed=true
+    return false
+}
+function validRun (runTime, runDistance, gender){
+    if (runTime <= 720 && runDistance >= 3000 || runTime <= 1200 && runDistance >= 5000 && gender === "male"){
+        return true
+    } else if (runTime <= 900 && runDistance >= 4000 || runTime <= 1320 && runDistance >= 6000 && gender === "female"){
+        return true
     }
+    return false
 }
+function areCandidateResultsValid(gender, height, barReps, barTime, abs, runDistanc, runTime, swimDistance, swimTime, diveTime){
+    const verifyAbs = validAbs(abs)
+    const verifyHeight = validHeight(height, gender)
+    const verifySwim = validSwim(swimTime, swimDistance, diveTime)
+    const verifyBarTest = validBar(barReps, barTime, gender)
+    const verifyRun = validRun(runTime, runDistance, gender)
 
-console.log(areCandidateResultsValid1)
 
-///////////////////////////////
-
-const areCandidateResultsValid2=areCandidateResultsValid2()
-if (gender === female){
-
-function absPass(abs){
-    if (abs >= 41)
-    return passed=true
+    if (verifyAbs && verifyHeight && verifySwim && verifyBarTest && verifyRun){
+        return true
+    }
+    return false
+    
 }
-
-function swinPass(swim){
-    if (swimDistance >= 100 && swimTime <= 60 || diveTime <= 30) 
-    return passed=true
-}
-
-function barTestPass(bartest){
-    if (barReps >= 6 || barSeconds >= 15)
-    return passed = true
-}
-
-function runPass(run){
-    if (runDistance >= 4000 && runTime <= 900 || runDistance >= 6000 && runTime <= 1320)
-    return passed = true
-}
-}
-console.log(areCandidateResultsValid2)
 
 
 
